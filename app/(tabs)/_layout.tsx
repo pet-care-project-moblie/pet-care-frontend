@@ -15,14 +15,14 @@ export default function TabLayout() {
 
   const user = useUser();
 
-  if (user.data === null) {
-    return <Redirect href="/sign-in" />;
-  }
+  // if (user.data === null) {
+  //   return <Redirect href="/sign-in" />;
+  // }
 
 
   return (
     <Tabs
-      initialRouteName="index"
+      initialRouteName="profile"
       screenOptions={{
         tabBarShowLabel: true,
         headerShown: false,
