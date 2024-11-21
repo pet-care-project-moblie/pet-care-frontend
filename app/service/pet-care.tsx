@@ -29,10 +29,6 @@ export default function PetCareScreen() {
       quality: 1,
     });
 
-    if (!result.canceled) {
-      const uri = result.assets ? result.assets[0].uri : result.uri; // ใช้ result.assets หรือ result.uri
-      // setImages((prev) => [...prev, uri]); // เพิ่มรูปภาพใหม่เข้าไปใน state
-    }
   };
 
   const pickImage = async () => {
@@ -43,10 +39,7 @@ export default function PetCareScreen() {
       quality: 1,
     });
 
-    if (!result.canceled) {
-      const uri = result.assets ? result.assets[0].uri : result.uri; // ใช้ result.assets หรือ result.uri
-      // setImages((prev) => [...prev, uri]); // เพิ่มรูปภาพใหม่เข้าไปใน state
-    }
+
   };
   useEffect(() => {
     const requestPermission = async () => {
