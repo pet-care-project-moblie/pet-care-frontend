@@ -1,4 +1,4 @@
-import { Tabs } from 'expo-router';
+import { Redirect, Tabs } from 'expo-router';
 import React from 'react';
 import { Platform } from 'react-native';
 
@@ -7,25 +7,38 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { Dimensions } from '@/constants/Diamensions';
+import { useUser } from '../ctx';
+import Person from '@/assets/images/Person';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+
+  const user = useUser();
+
+  if (user.data === null) {
+    return <Redirect href="/sign-in" />;
+  }
+
 
   return (
     <Tabs
+      initialRouteName="index"
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarShowLabel: true,
         headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
-      }}>
+        tabBarHideOnKeyboard: true,
+        tabBarStyle: {
+          height: Dimensions.percentageHeight(6),
+          shadowColor: Colors.light.semantic.success,
+          shadowOffset: { width: 0, height: 2 },
+          shadowOpacity: 0.1,
+          shadowRadius: 5,
+          paddingHorizontal: Dimensions.percentageWidth(2),
+          paddingVertical: Dimensions.percentageHeight(2.5),
+        },
+      }}
+      backBehavior="history"
+    >
       <Tabs.Screen
         name="index"
         options={{
@@ -37,14 +50,14 @@ export default function TabLayout() {
           name="service"
           options={{
             title: 'Service',
-            tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+            tabBarIcon: ({ color }) => <Person height={28} color={color} />,
           }}
         />
       <Tabs.Screen
-        name="explore"
+        name="profile"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Profile',
+          tabBarIcon: ({ color }) => <Person height={28} color={color} />,
         }}
       />
     </Tabs>

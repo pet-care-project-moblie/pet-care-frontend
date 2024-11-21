@@ -1,6 +1,8 @@
+
+import { ServicePage } from '@/components/service/Servicepage';
+import { router } from 'expo-router';
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
-
 
 const Service = () => {
   return (
@@ -21,7 +23,7 @@ const Service = () => {
           <View>
             <Text style={styles.cardTitle}>ลงทะเบียนสัตว์เลี้ยง</Text>
             <Text style={styles.cardDescription}>ระบบทะเบียนสัตว์เลี้ยงออนไลน์</Text>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={() => router.navigate("/service/sign-pet")}>
               <Text style={styles.buttonText}>ลงทะเบียน</Text>
             </TouchableOpacity>
           </View>
@@ -34,7 +36,7 @@ const Service = () => {
           <View>
             <Text style={styles.cardTitle}>ตามหาสัตว์เลี้ยง</Text>
             <Text style={styles.cardDescription}>รวมไฟล์ประกาศตามหาสัตว์ที่หายไป</Text>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={() => router.navigate("/service/pet-care")}>
               <Text style={styles.buttonText}>ดูข้อมูล</Text>
             </TouchableOpacity>
           </View>
@@ -48,7 +50,7 @@ const Service = () => {
             <Text style={styles.cardTitle}>บริการให้คำปรึกษา</Text>
             <Text style={styles.cardDescription}>ให้คำปรึกษาโดยใช้ AI</Text>
             <TouchableOpacity style={styles.button}>
-              <Text style={styles.buttonText}>ดูข้อมูล</Text>
+            <ServicePage titleText="ดูข้อมูล" onPress={() => router.navigate("/service/advice")}/>
             </TouchableOpacity>
           </View>
         </View>
@@ -67,7 +69,6 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: '#fff',
     alignItems: 'flex-start',
-    marginTop: '10%',
     width: '100%',
     marginLeft: '5%',
   },

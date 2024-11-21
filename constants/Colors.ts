@@ -1,26 +1,52 @@
-/**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
- */
-
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
-
 export const Colors = {
   light: {
-    text: '#11181C',
-    background: '#fff',
-    tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
-    tabIconSelected: tintColorLight,
-  },
-  dark: {
-    text: '#ECEDEE',
-    background: '#151718',
-    tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
-    tabIconSelected: tintColorDark,
+    primary: {
+      1: '#281C9D',
+      2: '#5655B9',
+      3: '#A8A3D7',
+      4: '#F2F1F9',
+    },
+    neutral: {
+      1: '#343434',
+      2: '#898989',
+      3: '#989898',
+      4: '#CACACA',
+      5: '#E0E0E0',
+      6: '#FFFFFF',
+    },
+    semantic: {
+      error: '#FF4267',
+      warning: '#FFAF2A',
+      success: '#52D5BA',
+      info: '#0890FE',
+      alert: '#FB6B18',
+    },
   },
 };
+
+export interface ColorsType {
+  light: {
+    primary: {
+      1: string;
+      2: string;
+      3: string;
+      4: string;
+    };
+    neutral: {
+      1: string;
+      2: string;
+      3: string;
+      4: string;
+      5: string;
+      6: string;
+      7: string;
+    };
+    semantic: {
+      error: string;
+      warning: string;
+      success: string;
+      info: string;
+      alert: string;
+    };
+  };
+}
