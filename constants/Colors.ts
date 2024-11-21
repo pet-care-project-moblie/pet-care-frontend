@@ -14,6 +14,7 @@ export const Colors = {
       5: '#E0E0E0',
       6: '#FFFFFF',
     },
+    
     semantic: {
       error: '#FF4267',
       warning: '#FFAF2A',
