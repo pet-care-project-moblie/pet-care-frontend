@@ -32,7 +32,7 @@ export type ThemedButtonProps = ButtonProps & {
 export function ThemedButton({
   title,
   titleColor = Colors.light.neutral[6],
-  color = Colors.light.primary[1],
+  color = Colors.light.semantic.success,
   width = '100%', // Responsive width by default
   height = Dimensions.percentageHeight(5.6), // Responsive height
   borderRadius = Dimensions.percentageWidth(3.5), // Responsive border radius

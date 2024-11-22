@@ -25,7 +25,7 @@ export const ConfirmChecked: React.FC<ConfirmCheckedProps> = ({
         size={25}
         color={
           checked
-            ? Colors.light.primary[1]
+            ? Colors.light.semantic.success
             : Colors.light.neutral[4]
         }
         onPress={() =>

@@ -6,6 +6,7 @@ import { ThemedButton } from "@/components/ThemedButton";
 import { router } from "expo-router";
 import DogSmile from "@/assets/images/dog/DogSmile";
 import { Dimensions } from "@/constants/Diamensions";
+import DogRun from "@/assets/images/dog/DogRun";
 
 export default function SuccessfullyPage() {
 
@@ -13,11 +14,11 @@ export default function SuccessfullyPage() {
     <ThemedView style={styles.container}>
       <View style={styles.contentContainer}>
         <View>
-          <DogSmile height={Dimensions.percentageHeight(26)} />
+          <DogRun height={Dimensions.percentageHeight(26)} />
         </View>
         <View style={styles.containerText}>
           <ThemedText
-            color={Colors.light.primary[1]}
+            color={Colors.light.semantic.success}
             type="title1"
           >
             สมัครสมาชิกสำเร็จ

@@ -1,8 +1,7 @@
-import { StyleSheet, View, ScrollView, KeyboardAvoidingView, Platform } from "react-native";
+import { StyleSheet, View, ScrollView, KeyboardAvoidingView, Platform, TextInput, TouchableOpacity } from "react-native";
 import { router } from "expo-router";
 import { ThemedView } from "@/components/ThemedView";
 import { Colors } from "@/constants/Colors";
-import { ThemedText } from "@/components/ThemedText";
 import { ThemedButton } from "@/components/ThemedButton";
 import { ThemedTextInput } from "@/components/ThemedInput";
 import * as Yup from 'yup';
@@ -12,6 +11,8 @@ import CatBox from "@/assets/images/cat/CatBox";
 import { TextLink } from "@/components/TextLink";
 import { ThemedInputSecure } from "@/components/ThemedInputSecure";
 import { Dimensions } from "@/constants/Diamensions";
+import { ThemedText } from "@/components/ThemedText2";
+
 
 interface IFormUser {
     username: string;
@@ -52,136 +53,127 @@ export default function SignUpPage() {
     };
 
     return (
-        <KeyboardAvoidingView
-            style={styles.container}
-            behavior={Platform.OS === "ios" ? "padding" : "height"}
-        >
-            <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-                <ThemedView style={styles.container}>
-                    <View style={styles.headerTextContainer}>
-                        <BackIcon onPress={() => router.replace("/sign-in")} />
-                        <ThemedText color={Colors.light.neutral[6]} type="title1">สมัครสมาชิก</ThemedText>
-                    </View>
-                    <View style={styles.cardContainer}>
-                        <View style={styles.containerText}>
-                            <ThemedText color={Colors.light.primary[1]} type="title1">ยินดีต้อนรับ</ThemedText>
-                            <ThemedText color={Colors.light.neutral[1]} type="caption2">กรอกข้อมูลเพื่อสมัครสมาชิกใหม่!</ThemedText>
-                        </View>
-                        <View style={styles.imageContainer}>
-                            <CatBox height={Dimensions.percentageHeight(11.85)} />
-                        </View>
-                        <View style={styles.formContainer}>
-                            <ThemedTextInput
-                                width={Dimensions.percentageWidth(83.85)}
-                                placeholder="ชื่อผู้ใช้"
-                                name='username'
-                                value={userForm.values.username}
-                                onChangeText={userForm.handleChange('username')}
-                                helperText={userForm.errors.username}
-                                error={!!(userForm.errors.username && userForm.touched.username)}
-                                onBlur={userForm.handleBlur('username')}
-                            />
-                            <ThemedTextInput
-                                width={Dimensions.percentageWidth(83.85)}
-                                placeholder="อีเมล"
-                                name='email'
-                                value={userForm.values.email}
-                                onChangeText={userForm.handleChange('email')}
-                                helperText={userForm.errors.email}
-                                error={!!(userForm.errors.email && userForm.touched.email)}
-                                onBlur={userForm.handleBlur('email')}
-                            />
-                            <ThemedInputSecure
-                                width={Dimensions.percentageWidth(83.85)}
-                                placeholder="รหัสผ่าน"
-                                name='password'
-                                value={userForm.values.password}
-                                onChangeText={userForm.handleChange('password')}
-                                helperText={userForm.errors.password}
-                                error={!!(userForm.errors.password && userForm.touched.password)}
-                                onBlur={userForm.handleBlur('password')}
-                            />
-                            <ThemedInputSecure
-                                width={Dimensions.percentageWidth(83.85)}
-                                placeholder="ยืนยันรหัสผ่าน"
-                                name='confirmPassword'
-                                value={userForm.values.confirmPassword}
-                                onChangeText={userForm.handleChange('confirmPassword')}
-                                helperText={userForm.errors.confirmPassword}
-                                error={!!(userForm.errors.confirmPassword && userForm.touched.confirmPassword)}
-                                onBlur={userForm.handleBlur('confirmPassword')}
-                            />
-                        </View>
-                        <View style={styles.contentButton}>
-                            <ThemedButton width={Dimensions.percentageWidth(83.85)} title="ต่อไป" onPress={handleButtonPress} />
-                        </View>
-                        <View style={styles.footerContainer}>
-                            <ThemedText type="body3">มีบัญชีอยู่แล้ว? </ThemedText>
-                            <TextLink
-                                onPress={() => router.push("/sign-in")}
-                                titleType="body3"
-                            >
-                                คลิก
-                            </TextLink>
-                        </View>
-                    </View>
-                </ThemedView>
-            </ScrollView>
-        </KeyboardAvoidingView>
+        <ThemedView style={styles.container}>
+            <View style={styles.header}>
+                <ThemedText style={styles.title}>PetCare</ThemedText>
+                <ThemedText style={styles.subtitle}>ลงทะเบียน</ThemedText>
+            </View>
+
+            <View style={styles.form}>
+            <ThemedText style={styles.label}>ชื่อผู้ใช้</ThemedText>
+                <TextInput
+                    style={styles.input}
+                    value={userForm.values.username}
+                    onChangeText={userForm.handleChange('username')}
+                    onBlur={userForm.handleBlur('username')}
+                />
+                <TextInput style={styles.label}>อีเมล</TextInput>
+                <TextInput
+                    style={styles.input}
+                    value={userForm.values.email}
+                    onChangeText={userForm.handleChange('email')}
+                    onBlur={userForm.handleBlur('email')}
+                />
+                <TextInput style={styles.label}>รหัสผ่าน</TextInput>
+                <TextInput
+                    style={styles.input}
+                    value={userForm.values.password}
+                    onChangeText={userForm.handleChange('password')}
+                    onBlur={userForm.handleBlur('password')}
+                />
+                <TextInput style={styles.label}>ยืนยันรหัสผ่าน</TextInput>
+                <TextInput
+                    style={styles.input}
+                    value={userForm.values.confirmPassword}
+                    onChangeText={userForm.handleChange('confirmPassword')}
+                    onBlur={userForm.handleBlur('confirmPassword')}
+                />
+            </View>
+
+            <TouchableOpacity
+                style={styles.registerButton}
+                onPress={handleButtonPress}>
+            <ThemedText style={styles.registerButtonText}>ต่อไป</ThemedText>
+            </TouchableOpacity>
+            <ThemedText style={styles.loginPrompt}>
+                คุณมีบัญชีผู้ใช้อยู่แล้ว?{' '}
+                <ThemedText
+                    onPress={() => router.push("/sign-in")}
+                    style={styles.loginLink}
+                >
+                    คลิก
+                </ThemedText>
+
+            </ThemedText>
+        </ThemedView>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: Colors.light.primary[1],
-        paddingTop: Dimensions.percentageHeight(8),
-        width: Dimensions.width,
-        height: Dimensions.height,
+        backgroundColor: "#ffffff",
     },
-    headerTextContainer: {
-        width: "100%",
-        paddingLeft: Dimensions.percentageWidth(5.13),
-        marginBottom: Dimensions.percentageHeight(1.78),
-        flexDirection: 'row',
-        alignItems: 'center',
+    header: {
+        alignItems: "center",
+        marginTop: '20%', // เพิ่มค่าให้มากขึ้น
     },
-    cardContainer: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-        width: '100%',
-        borderTopLeftRadius: 30,
-        borderTopRightRadius: 30,
-        backgroundColor: Colors.light.neutral[6],
-        padding: Dimensions.percentageWidth(5.13),
+    subtitle: {
+        fontSize: 16,
+        color: "#666666",
+        marginTop: 8,
+        textAlign: "center",
     },
-    imageContainer: {
-        width: "100%",
+    title: {
+        fontSize: 30,
+        fontWeight: "bold",
+        color: "#1abc9c",
+        paddingVertical: 10, // เพิ่ม padding เพื่อขยายพื้นที่
     },
     containerText: {
         width: '100%',
     },
-    formContainer: {
-        alignItems: 'flex-end',
-        marginTop: Dimensions.percentageHeight(2.37),
+    form: {
+        marginTop: 40,
+        paddingHorizontal: 20,
+      },
+      input: {
+        borderWidth: 1,
+        borderColor: "#cccccc",
+        borderRadius: 8,
+        padding: 12,
+        marginBottom: 16,
+        fontSize: 16,
+        backgroundColor: "#f9f9f9",
+      },
+    loginPrompt: {
+        textAlign: 'center',
+        marginTop: 16,
+        fontSize: 14,
+        color: '#666666',
     },
-    contentButton: {
-        marginTop: Dimensions.percentageHeight(5.92),
+    loginLink: {
+        color: '#1abc9c',
+        fontWeight: 'bold',
     },
-    footerContainer: {
-        justifyContent: "center",
-        alignItems: "flex-end",
-        flexDirection: "row",
-        paddingTop: Dimensions.percentageHeight(10),
+    registerButton: {
+        backgroundColor: "#1abc9c",
+      borderRadius: 28,
+      paddingVertical: 12,
+      alignItems: "center",
+      marginTop: 16,
+      width: "70%",
+      alignSelf: "center",
     },
-    signInLink: {
-        color: Colors.light.primary[1],
+    registerButtonText: {
+        color: '#ffffff',
+        fontSize: 16,
+        fontWeight: 'bold',
     },
+    label: {
+        fontSize: 16,
+        color: "#333333",
+        marginBottom: 8,
+        fontWeight: "bold",
+      },
 });
-
-
-
-
