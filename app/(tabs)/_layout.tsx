@@ -40,9 +40,16 @@ export default function TabLayout() {
       backBehavior="history"
     >
       <Tabs.Screen
-        name="index"
+        name="Homepage"
         options={{
           title: 'Homepage',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="Mypet"
+        options={{
+          title: 'Mypet',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
         }}
       />
