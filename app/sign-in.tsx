@@ -3,12 +3,11 @@ import { StyleSheet, View, TextInput, TouchableOpacity } from "react-native";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
-import { router } from "expo-router";
+import { router, Slot } from "expo-router";
 import { axiosInstance } from "@/hooks/useAxios";
 import { useUser } from "./ctx";
 import { ThemedText } from "@/components/ThemedText2";
 import { ThemedView } from "@/components/ThemedView";
-import Svg, { Path } from "react-native-svg";
 
 interface IFormUser {
   username: string;
@@ -38,7 +37,7 @@ export default function SignInPage() {
       try {
         const response = await axiosInstance.post("/auth/login", values);
         user.saveToken(response.data.access_token);
-        router.replace("/(tabs)");
+        router.replace("/(tabs)/Homepage");
       } catch (error: any) {
         console.error("Login failed:", error.response?.data || error.message);
         alert("Login failed. Please try again.");
@@ -162,12 +161,13 @@ const styles = StyleSheet.create({
     right: 16,
     top: "50%",
     alignItems: "center",
-    transform: [{ translateY: -12 }],
+    transform: [{ translateY: -20 }],
   },
   showPasswordText: {
     color: "#1abc9c",
     fontSize: 14,
     fontWeight: "bold",
+    alignItems:'center'
   },
   forgotPassword: {
     alignSelf: "flex-end",

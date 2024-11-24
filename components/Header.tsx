@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, ViewStyle } from 'react-native';
+import { View, StyleSheet, Image, TouchableOpacity, ScrollView, ViewStyle } from 'react-native';
+import { ThemedText } from './ThemedText2';
 
 interface HeaderProps {
   style?: ViewStyle;
@@ -8,8 +9,9 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ style }) => {
     return (
         <View style={style}>
-                <Text style={styles_Header.title}>PetCare</Text>
-                <Text style={{}}>Ubonratchatani</Text>
+            
+                <ThemedText style={styles_Header.title}>PetCare</ThemedText>
+                <ThemedText style={{}}>Ubonratchatani</ThemedText>
         </View>
     );
 };

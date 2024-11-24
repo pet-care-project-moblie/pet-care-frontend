@@ -1,11 +1,11 @@
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import React from 'react'
+import { ThemedText } from '@/components/ThemedText2'
 
 export default function Signpet() {
   return (
     <View>
-      <Text>sing-pet</Text>
+      <ThemedText>sing-pet</ThemedText>
     </View>
   )
 }
-

@@ -3,7 +3,7 @@ import React from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import { BackIcon } from '../BackIcon';
 import { ThemedText } from '../ThemedText';
-import { Dimensions } from '@/constants/Dimensions'; // Responsive dimensions utility
+import { Dimensions } from '@/constants/Diamensions';
 
 export type HeaderProps = {
     title: string;
@@ -13,7 +13,7 @@ export type HeaderProps = {
     style?: any;
 };
 
-export function Header({ title, onPressArrowBack, children, color = Colors.light.neutral[1], style }: HeaderProps) {
+export function Header({ title, onPressArrowBack, children, color = '#02B7B6', style }: HeaderProps) {
 
     return (
         <View style={styles.containerHeader}>

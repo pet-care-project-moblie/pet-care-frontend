@@ -36,13 +36,13 @@ export default function SuccessfullyPage() {
           </View>
         </View>
       </View>
-      <View style={styles.contentButton}>
+      <ThemedView style={styles.contentButton}>
         <ThemedButton
           width={Dimensions.percentageWidth(83.85)}
           title="เสร็จสิ้น"
           onPress={() => router.replace("/sign-in")}
         />
-      </View>
+      </ThemedView>
     </ThemedView>
   );
 }

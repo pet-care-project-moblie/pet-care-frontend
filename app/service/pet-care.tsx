@@ -6,6 +6,7 @@ import { Picker } from '@react-native-picker/picker';
 import * as ImagePicker from 'expo-image-picker';
 import { useEffect } from 'react';
 import WebView from 'react-native-webview';
+import { ThemedText } from '@/components/ThemedText2';
 
 export default function PetCareScreen() {
   const [images, setImages] = useState([]); // เก็บรูปภาพที่ผู้ใช้อัปโหลด
@@ -70,9 +71,9 @@ export default function PetCareScreen() {
         size={20}
         color={liked ? "#00B5AD" : "#A0A0A0"} // เปลี่ยนสีตามเงื่อนไข
       />
-      <Text style={[styles.likeCount, { color: liked ? "#00B5AD" : "#A0A0A0" }]}>
+      <ThemedText style={[styles.likeCount, { color: liked ? "#00B5AD" : "#A0A0A0" }]}>
         {likes}
-      </Text>
+      </ThemedText>
     </TouchableOpacity>
   </View>
 
@@ -114,7 +115,7 @@ export default function PetCareScreen() {
               <View style={styles.modalContent}>
                 {/* Header */}
                 <View style={styles.modalHeader}>
-                  <Text style={styles.modalTitle}>สร้างโพสต์</Text>
+                  <ThemedText style={styles.modalTitle}>สร้างโพสต์</ThemedText>
                   <TouchableOpacity onPress={() => setModalVisible(false)}>
                     <MaterialIcons name="close" size={24} color="#00B5AD" />
                   </TouchableOpacity>
@@ -122,7 +123,7 @@ export default function PetCareScreen() {
 
                 {/* Dropdown Section */}
                 <View style={styles.dropdownContainer}>
-                  <Text style={styles.dropdownLabel}>เลือกหมวดหมู่:</Text>
+                  <ThemedText style={styles.dropdownLabel}>เลือกหมวดหมู่:</ThemedText>
                   <Picker
                     selectedValue={selectedValue}
                     onValueChange={(itemValue) => setSelectedValue(itemValue)}
@@ -158,7 +159,7 @@ export default function PetCareScreen() {
 
                 {/* Post Button */}
                 <TouchableOpacity style={styles.postButton}>
-                  <Text style={styles.postButtonText}>โพสต์</Text>
+                  <ThemedText style={styles.postButtonText}>โพสต์</ThemedText>
                 </TouchableOpacity>
               </View>
             </View>
@@ -173,7 +174,7 @@ export default function PetCareScreen() {
               <View style={styles.commentModalContent}>
                 {/* Header */}
                 <View style={styles.modalHeader}>
-                  <Text style={styles.modalTitle}>แสดงความคิดเห็น</Text>
+                  <ThemedText style={styles.modalTitle}>แสดงความคิดเห็น</ThemedText>
                   <TouchableOpacity onPress={() => setCommentModalVisible(false)}>
                     <MaterialIcons name="close" size={24} color="#00B5AD" />
                   </TouchableOpacity>
@@ -185,7 +186,7 @@ export default function PetCareScreen() {
                     style={styles.profilePicture}
                     source={{ uri: 'https://via.placeholder.com/40' }}
                   />
-                  <Text style={styles.username}>win winny</Text>
+                  <ThemedText style={styles.username}>win winny</ThemedText>
                 </View>
 
                 {/* Comment Input */}
@@ -214,11 +215,11 @@ export default function PetCareScreen() {
                 <MaterialIcons name="menu" size={24} color="#000" />
               </TouchableOpacity>
               <View style={styles.titleContainer}>
-                <Text style={styles.headerTitle}>
-                  <Text style={styles.pet}>Pet</Text>
-                  <Text style={styles.care}>Care</Text>
-                </Text>
-                <Text style={styles.location}>📍 Ubonratchathani</Text>
+                <ThemedText style={styles.headerTitle}>
+                  <ThemedText style={styles.pet}>Pet</ThemedText>
+                  <ThemedText style={styles.care}>Care</ThemedText>
+                </ThemedText>
+                <ThemedText style={styles.location}>📍 Ubonratchathani</ThemedText>
               </View>
               <TouchableOpacity style={styles.cameraButton} onPress={() => setShowWebView(true)}>
                 <MaterialIcons name="home" size={20} color="#00B5AD" />
@@ -251,14 +252,14 @@ export default function PetCareScreen() {
                       uri: 'https://via.placeholder.com/40',
                     }}
                   />
-                  <Text style={styles.username}>พั้นรักแมว</Text>
+                  <ThemedText style={styles.username}>พั้นรักแมว</ThemedText>
                 </View>
-                <Text style={styles.postTime}>1 day ago</Text>
+                <ThemedText style={styles.postTime}>1 day ago</ThemedText>
               </View>
-              <Text style={styles.postTitle}>ขอความช่วยเหลือ</Text>
-              <Text style={styles.postContent}>
+              <ThemedText style={styles.postTitle}>ขอความช่วยเหลือ</ThemedText>
+              <ThemedText style={styles.postContent}>
                 แมวหายค่ะฝากตามหาที{"\n"}น้องชื่อเหมียวตัวสีส้มๆ หายแถวบ้าน
-              </Text>
+              </ThemedText>
 
               {/* Single Image */}
               <Image
@@ -271,11 +272,11 @@ export default function PetCareScreen() {
               {/* Action Buttons */}
               <View style={styles.actions}>
                 <TouchableOpacity onPress={() => setCommentModalVisible(true)}>
-                  <Text style={styles.actionText}>Comment</Text>
+                  <ThemedText style={styles.actionText}>Comment</ThemedText>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={handleLike} style={styles.likeButton}>
                   <MaterialIcons name="thumb-up" size={20} color="#00B5AD" />
-                  <Text style={styles.likeCount}>{likes}</Text>
+                  <ThemedText style={styles.likeCount}>{likes}</ThemedText>
                 </TouchableOpacity>
               </View>
             </View>

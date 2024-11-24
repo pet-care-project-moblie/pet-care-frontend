@@ -1,12 +1,10 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const Petregister = () => {
+export default function EditUser() {
   return (
     <View>
-      <Text>Petregister</Text>
+      <Text>edit-user</Text>
     </View>
   )
 }
-
-export default Petregister

@@ -3,39 +3,23 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { ThemedView } from '@/components/ThemedView';
 import { useRouter } from 'expo-router';
 import { useSearchParams } from 'expo-router/build/hooks';
+import { useUser } from '@/app/ctx';
 
 
 export default function PetDetails() {
+
   const router = useRouter();
   const searchParams = useSearchParams();
-  const name = searchParams.get('name') || 'ไม่ระบุ';
-  const gender = searchParams.get('gender') || 'ไม่ระบุ';
-  const age = searchParams.get('age') || 'ไม่ระบุ';
-  const breed = searchParams.get('breed') || 'ไม่ระบุ';
-  const biography = searchParams.get('biography') || 'ไม่มีข้อมูล';
-  const image = searchParams.get('image') || 'ไม่มีข้อมูล';
+  const name = searchParams.get('name') || 'Cockky';
+  const gender = searchParams.get('gender') || 'Male';
+  const age = searchParams.get('age') || '1 ปี';
+  const breed = searchParams.get('breed') || 'ชิวาวา';
+  const biography = searchParams.get('biography') || 'เป็นหมาสุดรักของพั้นรักแมว';
+  const image = searchParams.get('image') || '/pet-care-frontend/assets/images/dog/DogSleep.tsx';
 
   return (
     <ThemedView style={styles.container}>
       <ScrollView>
-        <View style={styles.header}>
-          <View style={styles.headerRow}>
-            <View style={styles.backButton}>
-              <TouchableOpacity onPress={() => router.back()}>
-                <MaterialIcons name="arrow-back" size={24} color="#fff" />
-              </TouchableOpacity>
-            </View>
-
-            <Text style={styles.headerText}>
-              <Text style={styles.highlight}>Pet</Text>Care
-            </Text>
-          </View>
-
-          <View style={styles.locationContainer}>
-            <MaterialIcons name="location-on" size={18} color="#00bfa5" />
-            <Text style={styles.locationText}>Ubonratchathani</Text>
-          </View>
-        </View>
 
         <Image source={{uri: image}}style={styles.headerImage}/>
 

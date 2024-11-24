@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { View, Text, Image, TouchableOpacity, StyleSheet, FlatList } from "react-native";
-import { MaterialIcons } from "@expo/vector-icons";
-
 const mockData = [
   {
     id: 1,
@@ -13,56 +11,7 @@ const mockData = [
     postImage: "https://via.placeholder.com/300",
     likes: 5,
   },
-  {
-    id: 2,
-    name: "พั้นรักหมา",
-    profileImage: "https://via.placeholder.com/50",
-    time: "2 hours ago",
-    title: "น้องหมาหาบ้าน",
-    description: "น้องอายุ 3 เดือน กำลังน่ารัก ใครสนใจรับเลี้ยงติดต่อได้เลยค่ะ",
-    postImage: "https://via.placeholder.com/300",
-    likes: 12,
-  },
-  {
-    id: 3,
-    name: "ฟินพัฒนา",
-    profileImage: "https://via.placeholder.com/50",
-    time: "1 day ago",
-    title: "แมวหายค่ะฝากตามหาด้วย!",
-    description: "น้องชื่อเหมียวตัวสีน้ำตาล หายแถวบ้าน",
-    postImage: "https://via.placeholder.com/300",
-    likes: 5,
-  },
-  {
-    id: 4,
-    name: "พั้นรักหมา",
-    profileImage: "https://via.placeholder.com/50",
-    time: "2 hours ago",
-    title: "น้องหมาหาบ้าน",
-    description: "น้องอายุ 3 เดือน กำลังน่ารัก ใครสนใจรับเลี้ยงติดต่อได้เลยค่ะ",
-    postImage: "https://via.placeholder.com/300",
-    likes: 12,
-  },
-  {
-    id: 5,
-    name: "ฟินพัฒนา",
-    profileImage: "https://via.placeholder.com/50",
-    time: "1 day ago",
-    title: "แมวหายค่ะฝากตามหาด้วย!",
-    description: "น้องชื่อเหมียวตัวสีน้ำตาล หายแถวบ้าน",
-    postImage: "https://via.placeholder.com/300",
-    likes: 5,
-  },
-  {
-    id: 6,
-    name: "พั้นรักหมา",
-    profileImage: "https://via.placeholder.com/50",
-    time: "2 hours ago",
-    title: "น้องหมาหาบ้าน",
-    description: "น้องอายุ 3 เดือน กำลังน่ารัก ใครสนใจรับเลี้ยงติดต่อได้เลยค่ะ",
-    postImage: "https://via.placeholder.com/300",
-    likes: 12,
-  },
+
 ];
 
 export default function PostList() {

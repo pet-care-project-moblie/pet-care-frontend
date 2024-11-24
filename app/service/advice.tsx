@@ -1,10 +1,11 @@
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import React from 'react'
+import { ThemedText } from '@/components/ThemedText2'
 
 export default function AdvicePage () {
   return (
     <View>
-      <Text>advice</Text>
+      <ThemedText>advice</ThemedText>
     </View>
   )
 }

@@ -1,43 +1,49 @@
-
 import { ServicePage } from '@/components/service/Servicepage';
+import { ThemedText } from '@/components/ThemedText2';
 import { router } from 'expo-router';
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { View, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { useUser } from '../ctx';
+import { EUserRole } from "@/constants/user";
 
-const Service = () => {
+export default function Service() {
+  const user = useUser(); // Call the hook as a function
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>
-            <Text style={{
-                color: '#36B4B4',
-            }}>
-                Pet
-            </Text>
-            Care</Text>
-        <Text style={styles.location}>Ubonratchathani</Text>
+        <ThemedText style={styles.title1}>Pet</ThemedText>
+        <ThemedText style={styles.title}>Care</ThemedText>
       </View>
-      <View style={[styles.card, styles.card_first]}>
-        <View style={styles.cardContent}>
-          <Image source={require('../../assets/images/dog_service1.png')} style={styles.image} />
-          <View>
-            <Text style={styles.cardTitle}>ลงทะเบียนสัตว์เลี้ยง</Text>
-            <Text style={styles.cardDescription}>ระบบทะเบียนสัตว์เลี้ยงออนไลน์</Text>
-            <TouchableOpacity style={styles.button} onPress={() => router.navigate("/service/sign-pet")}>
-              <Text style={styles.buttonText}>ลงทะเบียน</Text>
-            </TouchableOpacity>
+      {user.data?.role.includes(EUserRole.ADMIN) && (
+        <View style={[styles.card, styles.card_first]}>
+          <View style={styles.cardContent}>
+            <Image source={require('../../assets/images/dog_service1.png')} style={styles.image} />
+            <View>
+              <ThemedText style={styles.cardTitle}>ลงทะเบียนสัตว์เลี้ยง</ThemedText>
+              <ThemedText style={styles.cardDescription}>ระบบทะเบียนสัตว์เลี้ยงออนไลน์</ThemedText>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => router.push("/service/sign-pet")}
+              >
+                <ThemedText style={styles.buttonText}>ลงทะเบียน</ThemedText>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
-      </View>
+      )}
 
       <View style={[styles.card, styles.card_second]}>
         <View style={styles.cardContent}>
           <Image source={require('../../assets/images/dog_service2.png')} style={styles.image} />
           <View>
-            <Text style={styles.cardTitle}>ตามหาสัตว์เลี้ยง</Text>
-            <Text style={styles.cardDescription}>รวมไฟล์ประกาศตามหาสัตว์ที่หายไป</Text>
-            <TouchableOpacity style={styles.button} onPress={() => router.navigate("/service/pet-care")}>
-              <Text style={styles.buttonText}>ดูข้อมูล</Text>
+            <ThemedText style={styles.cardTitle}>ตามหาสัตว์เลี้ยง</ThemedText>
+            <ThemedText style={styles.cardDescription}>รวมไฟล์ประกาศตามหาสัตว์ที่หายไป</ThemedText>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => router.push("/service/pet-care")}
+            >
+              <ThemedText style={styles.buttonText}>ดูข้อมูล</ThemedText>
             </TouchableOpacity>
           </View>
         </View>
@@ -47,17 +53,20 @@ const Service = () => {
         <View style={styles.cardContent}>
           <Image source={require('../../assets/images/dog_service3.png')} style={styles.image} />
           <View>
-            <Text style={styles.cardTitle}>บริการให้คำปรึกษา</Text>
-            <Text style={styles.cardDescription}>ให้คำปรึกษาโดยใช้ AI</Text>
-            <TouchableOpacity style={styles.button}>
-            <ServicePage titleText="ดูข้อมูล" onPress={() => router.navigate("/service/advice")}/>
+            <ThemedText style={styles.cardTitle}>บริการให้คำปรึกษา</ThemedText>
+            <ThemedText style={styles.cardDescription}>ให้คำปรึกษาโดยใช้ AI</ThemedText>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => router.push("/service/advice")}
+            >
+              <ThemedText style={styles.buttonText}>ดูข้อมูล</ThemedText>
             </TouchableOpacity>
           </View>
         </View>
       </View>
     </ScrollView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -66,20 +75,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   header: {
+    flexDirection: 'row',
     padding: 20,
     backgroundColor: '#fff',
     alignItems: 'flex-start',
     width: '100%',
-    marginLeft: '5%',
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     color: '#2c3e50',
   },
-  location: {
-    fontSize: 14,
-    color: '#7f8c8d',
+  title1: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#1abc9c',
   },
   card: {
     margin: 10,
@@ -136,8 +146,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 12,
     textAlign: 'center',
-    
   },
 });
-
-export default Service;
