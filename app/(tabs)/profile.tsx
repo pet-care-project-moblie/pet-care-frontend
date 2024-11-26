@@ -16,6 +16,7 @@ export default function ProfilePage() {
   const handleLogout = () => {
     user.removeToken();
   };
+  
 
   return (
     <ThemedView style={styles.container}>
@@ -40,14 +41,15 @@ export default function ProfilePage() {
               <ThemedText style={styles.userinfo}>
                 {user?.data?.username}
                 {"\n"}สถานะ : {user?.data?.role}
+                
               </ThemedText>
             </View>
-            <TouchableOpacity style={styles.editButton}  onPress={() => router.push("/editUser/edit-user")}>
-          <ThemedText style={styles.editButtonText}>แก้ไขโปรไฟล์</ThemedText>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.logoutBotton} onPress={handleLogout}>
-          <ThemedText style={styles.loginButtonText}>ออกจากระบบ</ThemedText>
-        </TouchableOpacity>
+            {/* <TouchableOpacity style={styles.editButton} onPress={() => router.navigate(`/user/edit-user/edit-user`)}>
+              <ThemedText style={styles.editButtonText}>แก้ไขโปรไฟล์</ThemedText>
+            </TouchableOpacity> */}
+            <TouchableOpacity style={styles.logoutBotton} onPress={handleLogout}>
+              <ThemedText style={styles.loginButtonText}>ออกจากระบบ</ThemedText>
+            </TouchableOpacity>
 
           </View>
         </View>
@@ -111,7 +113,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     alignItems: "center",
     marginTop: 16,
-    width:170,
+    width: 170,
     alignSelf: "center",
   },
   editButtonText: {
@@ -122,12 +124,12 @@ const styles = StyleSheet.create({
   userinfo: {
     textAlign: 'center'
   },
-  loginButtonText:{
+  loginButtonText: {
     color: '#B70202',
     fontSize: 14,
   },
   logoutBotton: {
-    marginTop:'5%',
+    marginTop: '5%',
     alignItems: "center",
   }
 });

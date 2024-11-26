@@ -120,10 +120,10 @@ export const ThemedTextInput: React.FC<ThemedTextInputProps> = ({
 const styles = StyleSheet.create({
     container: {
         marginVertical: Dimensions.percentageHeight(1.2),
-        color: Colors.light.semantic.success
+        color: '#1abc9c'
     },
     label: {
-        color: Colors.light.semantic.success,
+        color: '#1abc9c',
         marginBottom: Dimensions.percentageHeight(0.5),
     },
     inputContainer: {
@@ -162,6 +162,6 @@ const styles = StyleSheet.create({
     },
     currencyText: {
         fontSize: Dimensions.percentageWidth(4),
-        color: Colors.light.semantic.success,
+        color: '#1abc9c',
     },
 });
