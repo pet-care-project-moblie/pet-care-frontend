@@ -74,6 +74,9 @@ export default function PersonalInformationPage() {
     };
 
     return (
+        <ScrollView>
+
+
         <ThemedView style={styles.container}>
             <View style={styles.header}>
                 <ThemedText style={styles.title}>PetCare</ThemedText>
@@ -136,6 +139,7 @@ export default function PersonalInformationPage() {
                 </TouchableOpacity>
             </View>
         </ThemedView>
+        </ScrollView>
     );
 }
 

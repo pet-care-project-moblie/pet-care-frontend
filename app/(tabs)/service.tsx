@@ -24,7 +24,7 @@ export default function Service() {
               <ThemedText style={styles.cardDescription}>ระบบทะเบียนสัตว์เลี้ยงออนไลน์</ThemedText>
               <TouchableOpacity
                 style={styles.button}
-                onPress={() => router.push("/service/sign-pet")}
+                onPress={() => router.navigate('/service/sign-pet')}
               >
                 <ThemedText style={styles.buttonText}>ลงทะเบียน</ThemedText>
               </TouchableOpacity>
